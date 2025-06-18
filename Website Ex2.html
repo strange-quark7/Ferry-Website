@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HemoLink - Your Personal Hemoglobin Monitor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .wave-container {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 100px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #000000,
+        #000000 2px,
+        transparent 2px,
+        transparent 8px
+      );
+      animation: waveMove 10s linear infinite;
+      opacity: 0.05;
+    }
+    .ship {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      font-size: 24px;
+      animation: shipMove 20s linear infinite;
+      z-index: 10;
+    }
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes shipMove {
+      0% { left: -10%; }
+      100% { left: 110%; }
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #c62828;
+    }
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+      transition: color 0.2s ease-in-out;
+    }
+    nav a:hover {
+      color: #c62828;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background-color: #f9f9f9;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+      border-radius: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      max-width: 700px;
+      color: #c62828;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+    }
+    .gif-container {
+      margin-top: 2rem;
+    }
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    .cta {
+      margin-top: 2rem;
+      background-color: #c62828;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .cta:hover {
+      background-color: #a61c1c;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+    }
+    .feature-card {
+      background-color: #fdfdfd;
+      border: 1px solid #eee;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .feature-card h3 {
+      color: #c62828;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+    .feature-card p {
+      color: #555;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wave-container">
+    <div class="ship">🚢</div>
+    <div class="wave"></div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Ferry Lifesciences Logo" />
+      <span class="logo-text">HemoLink</span>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="hero-image.jpg" alt="At-home Hemoglobin Test Device" />
+    <h1>At-Home Hemoglobin Monitoring Made Effortless</h1>
+    <p>Easily measure your hemoglobin levels at home with IoT connectivity. Track trends, share with doctors, and stay in control of your health — from anywhere.</p>
+    <div class="gif-container">
+      <img src="animated-demo.gif" alt="Device Demo Animation" loop autoplay />
+    </div>
+    <button class="cta">Learn More</button>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature-card">
+      <h3>Quick & Accurate</h3>
+      <p>Get reliable results in seconds using a single drop of blood.</p>
+    </div>
+    <div class="feature-card">
+      <h3>IoT Connectivity</h3>
+      <p>Sync data with your smartphone and health platforms automatically.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Track Your Trends</h3>
+      <p>Monitor hemoglobin levels over time and spot early warning signs.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Multi-User Friendly</h3>
+      <p>Perfect for families — manage multiple profiles on a single device.</p>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <p>&copy; 2025 Ferry Lifesciences Pvt Ltd. All rights reserved.</p>
+    <p>support@ferrylife.in</p>
+  </footer>
+</body>
+</html>
