@@ -18,9 +18,10 @@
 </head>
 <body>
   <header>
-    <h1>Patient Test Data</h1>
+    <h1 id="title">Patient Test Data</h1>
   </header>
   <nav>
+    <a href="index.html">Home</a>
     <a href="device.html">Main Page</a>
   </nav>
   <main>
@@ -42,6 +43,9 @@
   </main>
   <script>
     const patient = JSON.parse(localStorage.getItem('patient') || '{}');
+    if(patient.name){
+      document.getElementById('title').textContent = `Patient Test Data - ${patient.name}`;
+    }
     const hb = 12.6;
     const ferritin = 223;
     const iron = 63;

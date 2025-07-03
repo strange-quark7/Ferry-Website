@@ -21,17 +21,21 @@
 </head>
 <body>
   <header>
-    <img src="Ferry Logo.png" alt="Ferry Logo">
+    <a href="index.html"><img src="Ferry Logo.png" alt="Ferry Logo"></a>
+    <img src="https://via.placeholder.com/150x40?text=Nanobios+Labs" alt="Nanobios Labs Logo">
     <h1>Ferry &amp; Nanobios Labs</h1>
   </header>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
   <form id="patientForm">
     <label>Name:<br><input type="text" id="name" required></label>
     <label>Patient ID:<br><input type="text" id="patientId" required></label>
     <fieldset>
       <legend>Sex</legend>
-      <label><input type="radio" name="sex" value="male" required> Male</label>
-      <label><input type="radio" name="sex" value="female"> Female</label>
-      <label><input type="radio" name="sex" value="other"> Other</label>
+      <label><input type="checkbox" name="sex" value="male" required> Male</label>
+      <label><input type="checkbox" name="sex" value="female"> Female</label>
+      <label><input type="checkbox" name="sex" value="other"> Other</label>
     </fieldset>
     <div class="buttons">
       <button type="button" id="calibrateBtn">Calibrate</button>
@@ -39,6 +43,15 @@
     </div>
   </form>
   <script>
+    document.querySelectorAll('input[name="sex"]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        if(cb.checked){
+          document.querySelectorAll('input[name="sex"]').forEach(other => {
+            if(other !== cb) other.checked = false;
+          });
+        }
+      });
+    });
     function saveForm(){
       const data={
         name:document.getElementById('name').value,
